@@ -7,16 +7,23 @@ account-blocklist:
 - "1234567890"
 
 accounts:
-  "010562097198": {}
+  "010562097198":
+    filters:
+      EC2VPC:
+      - property: IsDefault
+        value: "true"
+      EC2Subnet:
+      - property: DefaultForAz
+        value: "true"
+      
+      
+
 
 resource-types:
   targets:
   - EC2EgressOnlyInternetGateway
   - EC2Image
   - EC2Instance
-  - EC2InternetGateway
-  - EC2InternetGatewayAttachment
-  - EC2RouteTable
   - EC2SecurityGroup
   - EC2SpotFleetRequest
   - EC2Subnet
