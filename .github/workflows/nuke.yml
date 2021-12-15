@@ -1,0 +1,18 @@
+name: Run aws-nuke
+on:
+  schedule:
+    # Every night at 2am
+    - cron:  '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  aws_nuke:
+    runs-on: ubuntu-latest
+    container:
+      image: quay.io/rebuy/aws-nuke:v2.16.0
+    steps:
+    - name: Run aws-nuke
+      run: |-
+        aws-nuke version
+        aws-nuke -c /nuke/nuke.yml --force --no-dry-run --force-sleep 3
+
