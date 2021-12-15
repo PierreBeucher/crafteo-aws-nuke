@@ -11,8 +11,10 @@ jobs:
     container:
       image: quay.io/rebuy/aws-nuke:v2.16.0
     steps:
-    - name: Run aws-nuke
+    - name: checkout repo
+      uses: actions/checkout@v2
+    - name: run aws-nuke
       run: |-
         aws-nuke version
-        aws-nuke -c /nuke/nuke.yml --force --no-dry-run --force-sleep 3
+        aws-nuke -c ${GITHUB_WORKSPACE}/nuke.yml --force --no-dry-run --force-sleep 3
 
