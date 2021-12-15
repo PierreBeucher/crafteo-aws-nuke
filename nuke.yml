@@ -1,0 +1,32 @@
+regions:
+- eu-west-3
+- global
+
+# dummy otherwise aws-nuke complains at least one account is required 
+account-blocklist:
+- "1234567890"
+
+accounts:
+  "010562097198": {}
+
+resource-types:
+  targets:
+  - EC2EgressOnlyInternetGateway
+  - EC2Image
+  - EC2Instance
+  - EC2InternetGateway
+  - EC2InternetGatewayAttachment
+  - EC2RouteTable
+  - EC2SecurityGroup
+  - EC2SpotFleetRequest
+  - EC2Subnet
+  - EC2TGW
+  - EC2TGWAttachment
+  - EC2VPC
+  - EC2VPCEndpoint
+  - EC2Volume
+  - EKSCluster
+  - EKSNodegroups
+  - ELB
+  - ELBv2
+  - ELBv2TargetGroup
