@@ -1,0 +1,27 @@
+name: Run aws-nuke
+on:
+  schedule:
+    # Every night at 2am
+    - cron:  '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  aws_nuke:
+    runs-on: ubuntu-latest
+    container:
+      image: quay.io/rebuy/aws-nuke:v2.16.0
+      options: --user root
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v2
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: eu-west-3
+    - name: run aws-nuke
+      run: |-
+        aws-nuke version
+        aws-nuke -c ${GITHUB_WORKSPACE}/nuke.yml --force --no-dry-run --force-sleep 3
+
