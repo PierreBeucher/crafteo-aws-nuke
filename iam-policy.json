@@ -13,7 +13,11 @@
               "eks:List*",
               "eks:Delete*",
               "elasticloadbalancing:Describe*",
-              "elasticloadbalancing:Delete*"
+              "elasticloadbalancing:Delete*",
+              "cloudformation:Delete*",
+              "cloudformation:Get*",
+              "cloudformation:Describe*",
+              "cloudformation:List*"
           ],
           "Resource": "*"
       }

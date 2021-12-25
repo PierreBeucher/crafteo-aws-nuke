@@ -37,3 +37,6 @@ resource-types:
   - ELB
   - ELBv2
   - ELBv2TargetGroup
+  - CloudFormationStack
+  - CloudFormationStackSet
+  - CloudFormationType
