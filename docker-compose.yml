@@ -3,7 +3,6 @@ services:
   nuke:
     image: quay.io/rebuy/aws-nuke:v2.17.0
     volumes:
-    - ${HOME}/.aws/config:/home/aws-nuke/.aws/config:ro
-    - ${HOME}/.aws/credentials:/home/aws-nuke/.aws/credentials:ro
+    - ${HOME}/.aws:/home/aws-nuke/.aws:ro
     - ${PWD}:/nuke
     working_dir: /nuke
