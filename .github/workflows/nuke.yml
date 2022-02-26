@@ -9,7 +9,7 @@ jobs:
   aws_nuke:
     runs-on: ubuntu-latest
     container:
-      image: quay.io/rebuy/aws-nuke:v2.16.0
+      image: quay.io/rebuy/aws-nuke:v2.17.0
       options: --user root
     steps:
     - name: checkout repo
