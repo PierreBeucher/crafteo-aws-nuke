@@ -1,3 +1,8 @@
+#
+# Example aws-nuke config with multiple accounts
+# and preset keeping resources tagged with 'nuke.keep: true'
+#
+
 regions:
 - global
 - eu-central-1
