@@ -1,0 +1,1182 @@
+regions:
+- global
+- eu-central-1
+
+accounts:
+  # sandbox-a
+  "492696596659"
+    presets:
+    - tag-keep
+  # sandbox-b
+  "12345678910"
+    presets:
+    - tag-keep
+    - example-preset
+
+account-blocklist:
+# prod-1
+- "987654321078"
+# prod-2
+- "99999999999"
+
+resource-types:
+  excludes:
+  # Delete everything but important IAM resources
+  - IAMGroup
+  - IAMGroupPolicy
+  - IAMGroupPolicyAttachment
+  - IAMInstanceProfile
+  - IAMInstanceProfileRole
+  - IAMLoginProfile
+  - IAMOpenIDConnectProvider
+  - IAMPolicy
+  - IAMRole
+  - IAMRolePolicy
+  - IAMRolePolicyAttachment
+  - IAMSAMLProvider
+  - IAMServerCertificate
+  - IAMServiceSpecificCredential
+  - IAMUser
+  - IAMUserAccessKey
+  - IAMUserGroupAttachment
+  - IAMUserPolicy
+  - IAMUserPolicyAttachment
+  - IAMVirtualMFADevice
+
+presets:
+  example-preset:
+    filters:
+      S3Bucket:      
+      - type: glob
+        property: "Name"
+        value: "important-bucket-*"
+      - type: exact
+        property: "Name"
+        value: "keep-bucket-with-this-name"
+
+  # Keeps all resources tagged with nuke.keep: true
+  # Generated with command:
+  #
+  #   aws-nuke resource-types | sed -r --expression "s/(.*)/      \1:\n      - property: \"tag:nuke.keep\"\n        value: \"true\"/g"
+  #
+  tag-keep:
+    filters:
+      ACMCertificate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ACMPCACertificateAuthority:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ACMPCACertificateAuthorityState:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AMPWorkspace:
+      - property: "tag:nuke.keep"
+        value: "true"
+      APIGatewayAPIKey:
+      - property: "tag:nuke.keep"
+        value: "true"
+      APIGatewayClientCertificate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      APIGatewayDomainName:
+      - property: "tag:nuke.keep"
+        value: "true"
+      APIGatewayRestAPI:
+      - property: "tag:nuke.keep"
+        value: "true"
+      APIGatewayUsagePlan:
+      - property: "tag:nuke.keep"
+        value: "true"
+      APIGatewayV2API:
+      - property: "tag:nuke.keep"
+        value: "true"
+      APIGatewayV2VpcLink:
+      - property: "tag:nuke.keep"
+        value: "true"
+      APIGatewayVpcLink:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AWSBackupPlan:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AWSBackupRecoveryPoint:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AWSBackupSelection:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AWSBackupVault:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AWSBackupVaultAccessPolicy:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AccessAnalyzer:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppMeshMesh:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppMeshRoute:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppMeshVirtualGateway:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppMeshVirtualNode:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppMeshVirtualRouter:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppMeshVirtualService:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppStreamDirectoryConfig:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppStreamFleet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppStreamFleetState:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppStreamImage:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppStreamImageBuilder:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppStreamImageBuilderWaiter:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppStreamStack:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppStreamStackFleetAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AppSyncGraphqlAPI:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ApplicationAutoScalingScalableTarget:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ArchiveRule:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AthenaNamedQuery:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AthenaWorkGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AutoScalingGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      AutoScalingPlansScalingPlan:
+      - property: "tag:nuke.keep"
+        value: "true"
+      BatchComputeEnvironment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      BatchComputeEnvironmentState:
+      - property: "tag:nuke.keep"
+        value: "true"
+      BatchJobQueue:
+      - property: "tag:nuke.keep"
+        value: "true"
+      BatchJobQueueState:
+      - property: "tag:nuke.keep"
+        value: "true"
+      Budget:
+      - property: "tag:nuke.keep"
+        value: "true"
+      Cloud9Environment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudDirectoryDirectory:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudDirectorySchema:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudFormationStack:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudFormationStackSet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudFormationType:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudFrontDistribution:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudFrontDistributionDeployment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudFrontOriginAccessIdentity:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudHSMV2Cluster:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudHSMV2ClusterHSM:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudSearchDomain:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudTrailTrail:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudWatchAlarm:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudWatchDashboard:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudWatchEventsRule:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudWatchEventsTarget:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudWatchLogsDestination:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudWatchLogsLogGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CloudWatchLogsResourcePolicy:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CodeArtifactDomain:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CodeArtifactRepository:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CodeBuildProject:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CodeCommitRepository:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CodeDeployApplication:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CodePipelinePipeline:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CodeStarConnection:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CodeStarNotificationRule:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CodeStarProject:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CognitoIdentityPool:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CognitoIdentityProvider:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CognitoUserPool:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CognitoUserPoolClient:
+      - property: "tag:nuke.keep"
+        value: "true"
+      CognitoUserPoolDomain:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ComprehendDocumentClassifier:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ComprehendDominantLanguageDetectionJob:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ComprehendEndpoint:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ComprehendEntitiesDetectionJob:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ComprehendEntityRecognizer:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ComprehendKeyPhrasesDetectionJob:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ComprehendSentimentDetectionJob:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ConfigServiceConfigRule:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ConfigServiceConfigurationRecorder:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ConfigServiceDeliveryChannel:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DAXCluster:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DAXParameterGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DAXSubnetGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DataPipelinePipeline:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DatabaseMigrationServiceCertificate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DatabaseMigrationServiceEndpoint:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DatabaseMigrationServiceEventSubscription:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DatabaseMigrationServiceReplicationInstance:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DatabaseMigrationServiceReplicationTask:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DatabaseMigrationServiceSubnetGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DeviceFarmProject:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DirectoryServiceDirectory:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DynamoDBTable:
+      - property: "tag:nuke.keep"
+        value: "true"
+      DynamoDBTableItem:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2Address:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2ClientVpnEndpoint:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2ClientVpnEndpointAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2CustomerGateway:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2DHCPOption:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2DefaultSecurityGroupRule:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2EgressOnlyInternetGateway:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2Image:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2Instance:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2InternetGateway:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2InternetGatewayAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2KeyPair:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2LaunchTemplate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2NATGateway:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2NetworkACL:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2NetworkInterface:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2PlacementGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2RouteTable:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2SecurityGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2Snapshot:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2SpotFleetRequest:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2Subnet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2TGW:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2TGWAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2VPC:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2VPCEndpoint:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2VPCEndpointServiceConfiguration:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2VPCPeeringConnection:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2VPNConnection:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2VPNGateway:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2VPNGatewayAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EC2Volume:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ECRRepository:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ECSCluster:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ECSClusterInstance:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ECSService:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ECSTaskDefinition:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EFSFileSystem:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EFSMountTarget:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EKSCluster:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EKSFargateProfiles:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EKSNodegroups:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ELB:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ELBv2:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ELBv2TargetGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EMRCluster:
+      - property: "tag:nuke.keep"
+        value: "true"
+      EMRSecurityConfiguration:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ESDomain:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ElasticBeanstalkApplication:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ElasticBeanstalkEnvironment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ElasticTranscoderPipeline:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ElasticacheCacheCluster:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ElasticacheCacheParameterGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ElasticacheReplicationGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ElasticacheSubnetGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      FMSNotificationChannel:
+      - property: "tag:nuke.keep"
+        value: "true"
+      FMSPolicy:
+      - property: "tag:nuke.keep"
+        value: "true"
+      FSxBackup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      FSxFileSystem:
+      - property: "tag:nuke.keep"
+        value: "true"
+      FirehoseDeliveryStream:
+      - property: "tag:nuke.keep"
+        value: "true"
+      GlobalAccelerator:
+      - property: "tag:nuke.keep"
+        value: "true"
+      GlobalAcceleratorEndpointGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      GlobalAcceleratorListener:
+      - property: "tag:nuke.keep"
+        value: "true"
+      GlueClassifier:
+      - property: "tag:nuke.keep"
+        value: "true"
+      GlueConnection:
+      - property: "tag:nuke.keep"
+        value: "true"
+      GlueCrawler:
+      - property: "tag:nuke.keep"
+        value: "true"
+      GlueDatabase:
+      - property: "tag:nuke.keep"
+        value: "true"
+      GlueDevEndpoint:
+      - property: "tag:nuke.keep"
+        value: "true"
+      GlueJob:
+      - property: "tag:nuke.keep"
+        value: "true"
+      GlueTrigger:
+      - property: "tag:nuke.keep"
+        value: "true"
+      GuardDutyDetector:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMGroupPolicy:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMGroupPolicyAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMInstanceProfile:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMInstanceProfileRole:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMLoginProfile:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMOpenIDConnectProvider:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMPolicy:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMRole:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMRolePolicy:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMRolePolicyAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMSAMLProvider:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMServerCertificate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMServiceSpecificCredential:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMSigningCertificate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMUser:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMUserAccessKey:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMUserGroupAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMUserPolicy:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMUserPolicyAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMUserSSHPublicKey:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IAMVirtualMFADevice:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ImageBuilderComponent:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ImageBuilderDistributionConfiguration:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ImageBuilderImage:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ImageBuilderInfrastructureConfiguration:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ImageBuilderPipeline:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ImageBuilderRecipe:
+      - property: "tag:nuke.keep"
+        value: "true"
+      InspectorAssessmentRun:
+      - property: "tag:nuke.keep"
+        value: "true"
+      InspectorAssessmentTarget:
+      - property: "tag:nuke.keep"
+        value: "true"
+      InspectorAssessmentTemplate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IoTAuthorizer:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IoTCACertificate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IoTCertificate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IoTJob:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IoTOTAUpdate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IoTPolicy:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IoTRoleAlias:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IoTStream:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IoTThing:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IoTThingGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IoTThingType:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IoTThingTypeState:
+      - property: "tag:nuke.keep"
+        value: "true"
+      IoTTopicRule:
+      - property: "tag:nuke.keep"
+        value: "true"
+      KMSAlias:
+      - property: "tag:nuke.keep"
+        value: "true"
+      KMSKey:
+      - property: "tag:nuke.keep"
+        value: "true"
+      KendraIndex:
+      - property: "tag:nuke.keep"
+        value: "true"
+      KinesisAnalyticsApplication:
+      - property: "tag:nuke.keep"
+        value: "true"
+      KinesisStream:
+      - property: "tag:nuke.keep"
+        value: "true"
+      KinesisVideoProject:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LambdaEventSourceMapping:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LambdaFunction:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LambdaLayer:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LaunchConfiguration:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LexBot:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LexIntent:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LexModelBuildingServiceBotAlias:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LexSlotType:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LifecycleHook:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LightsailDisk:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LightsailDomain:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LightsailInstance:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LightsailKeyPair:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LightsailLoadBalancer:
+      - property: "tag:nuke.keep"
+        value: "true"
+      LightsailStaticIP:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MQBroker:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MSKCluster:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MSKConfiguration:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MachineLearningBranchPrediction:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MachineLearningDataSource:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MachineLearningEvaluation:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MachineLearningMLModel:
+      - property: "tag:nuke.keep"
+        value: "true"
+      Macie:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MediaConvertJobTemplate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MediaConvertPreset:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MediaConvertQueue:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MediaLiveChannel:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MediaLiveInput:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MediaLiveInputSecurityGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MediaPackageChannel:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MediaPackageOriginEndpoint:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MediaStoreContainer:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MediaStoreDataItems:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MediaTailorConfiguration:
+      - property: "tag:nuke.keep"
+        value: "true"
+      MobileProject:
+      - property: "tag:nuke.keep"
+        value: "true"
+      NeptuneCluster:
+      - property: "tag:nuke.keep"
+        value: "true"
+      NeptuneInstance:
+      - property: "tag:nuke.keep"
+        value: "true"
+      NetpuneSnapshot:
+      - property: "tag:nuke.keep"
+        value: "true"
+      OpsWorksApp:
+      - property: "tag:nuke.keep"
+        value: "true"
+      OpsWorksCMBackup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      OpsWorksCMServer:
+      - property: "tag:nuke.keep"
+        value: "true"
+      OpsWorksCMServerState:
+      - property: "tag:nuke.keep"
+        value: "true"
+      OpsWorksInstance:
+      - property: "tag:nuke.keep"
+        value: "true"
+      OpsWorksLayer:
+      - property: "tag:nuke.keep"
+        value: "true"
+      OpsWorksUserProfile:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RDSDBCluster:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RDSDBClusterParameterGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RDSDBParameterGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RDSDBSubnetGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RDSEventSubscription:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RDSInstance:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RDSOptionGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RDSProxy:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RDSSnapshot:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RedshiftCluster:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RedshiftParameterGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RedshiftSnapshot:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RedshiftSubnetGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RekognitionCollection:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ResourceGroupGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RoboMakerDeploymentJob:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RoboMakerFleet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RoboMakerRobot:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RoboMakerRobotApplication:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RoboMakerSimulationApplication:
+      - property: "tag:nuke.keep"
+        value: "true"
+      RoboMakerSimulationJob:
+      - property: "tag:nuke.keep"
+        value: "true"
+      Route53HealthCheck:
+      - property: "tag:nuke.keep"
+        value: "true"
+      Route53HostedZone:
+      - property: "tag:nuke.keep"
+        value: "true"
+      Route53ResolverEndpoint:
+      - property: "tag:nuke.keep"
+        value: "true"
+      Route53ResolverRule:
+      - property: "tag:nuke.keep"
+        value: "true"
+      Route53ResourceRecordSet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      Route53TrafficPolicy:
+      - property: "tag:nuke.keep"
+        value: "true"
+      S3AccessPoint:
+      - property: "tag:nuke.keep"
+        value: "true"
+      S3Bucket:
+      - property: "tag:nuke.keep"
+        value: "true"
+      S3MultipartUpload:
+      - property: "tag:nuke.keep"
+        value: "true"
+      S3Object:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SESConfigurationSet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SESIdentity:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SESReceiptFilter:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SESReceiptRuleSet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SESTemplate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SFNStateMachine:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SNSEndpoint:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SNSPlatformApplication:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SNSSubscription:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SNSTopic:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SQSQueue:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SSMActivation:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SSMAssociation:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SSMDocument:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SSMMaintenanceWindow:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SSMParameter:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SSMPatchBaseline:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SSMResourceDataSync:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SageMakerApp:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SageMakerDomain:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SageMakerEndpoint:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SageMakerEndpointConfig:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SageMakerModel:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SageMakerNotebookInstance:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SageMakerNotebookInstanceLifecycleConfig:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SageMakerNotebookInstanceState:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SageMakerUserProfiles:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SecretsManagerSecret:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SecurityHub:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ServiceCatalogConstraintPortfolioAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ServiceCatalogPortfolio:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ServiceCatalogPortfolioProductAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ServiceCatalogPortfolioShareAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ServiceCatalogPrincipalPortfolioAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ServiceCatalogProduct:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ServiceCatalogProvisionedProduct:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ServiceCatalogTagOption:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ServiceCatalogTagOptionPortfolioAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ServiceDiscoveryInstance:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ServiceDiscoveryNamespace:
+      - property: "tag:nuke.keep"
+        value: "true"
+      ServiceDiscoveryService:
+      - property: "tag:nuke.keep"
+        value: "true"
+      SimpleDBDomain:
+      - property: "tag:nuke.keep"
+        value: "true"
+      StorageGatewayFileShare:
+      - property: "tag:nuke.keep"
+        value: "true"
+      StorageGatewayGateway:
+      - property: "tag:nuke.keep"
+        value: "true"
+      StorageGatewayTape:
+      - property: "tag:nuke.keep"
+        value: "true"
+      StorageGatewayVolume:
+      - property: "tag:nuke.keep"
+        value: "true"
+      TransferServer:
+      - property: "tag:nuke.keep"
+        value: "true"
+      TransferServerUser:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalByteMatchSet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalByteMatchSetIP:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalIPSet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalIPSetIP:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalRateBasedRule:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalRateBasedRulePredicate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalRegexMatchSet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalRegexMatchTuple:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalRegexPatternSet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalRegexPatternString:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalRule:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalRuleGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalRulePredicate:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalWebACL:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRegionalWebACLRuleAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFRule:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFWebACL:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFWebACLRuleAttachment:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFv2IPSet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFv2RegexPatternSet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFv2RuleGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WAFv2WebACL:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WorkLinkFleet:
+      - property: "tag:nuke.keep"
+        value: "true"
+      WorkSpacesWorkspace:
+      - property: "tag:nuke.keep"
+        value: "true"
+      XRayGroup:
+      - property: "tag:nuke.keep"
+        value: "true"
+      XRaySamplingRule:
+      - property: "tag:nuke.keep"
+        value: "true"
